@@ -12,10 +12,16 @@
 
  * 这意味着任何待处理的回调、仍在发送中的任何网络请求、任何文件系统访问、或正在写入 stdout 或 stderr 的进程，所有这些都会被立即非正常地终止。
  */
+
 const process = require("process");
 console.log("hello");
+// 当退出时，监听！
+process.on("exit", (code) => {
+  console.log("进程 exit 事件的退出码: ", code);
+});
 process.exit(1);
 console.log("world");
+
 // 输出：hello
 /*
 退出码的信息
