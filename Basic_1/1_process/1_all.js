@@ -4,6 +4,9 @@
  * 作为全局变量，它始终可供 Node.js 应用程序使用，无需使用 require()。
  * 它也可以使用 require() 显式地访问：
  * const process = require('process');
+ * ****************************************************
+ * 全属性地址：http://nodejs.cn/api/process.html#process_process
+ * ****************************************************
  * @author YS.Feng
  * @date 2021/04/07
  */
@@ -17,3 +20,8 @@ console.log("process是EventEmitter的实例:", bool);
     这与运行 ./configure 脚本时生成的 config.gypi 文件相同。
 */
 console.log(process.config);
+
+/**
+ * 输出开发环境信息
+ */
+console.log(process.env);
