@@ -21,3 +21,20 @@
 - process.nextTick() > Promise.then() > setTimeout > setImmediate
 
 （注意：process.nextTick 是 node 中的方法，而在浏览器中执行时（比如在vue项目中），会退化成setTimeout，所以在浏览器中 process.nextTick 会比 Promise.then() 慢）
+
+### 看图说话
+
+<img src="loop.jpg" alt="指纹识别展示" style="zoom:67%;" />
+
+- 同步和异步任务分别进入不同的执行"场所"，同步的进入主线程，异步的进入Event Table并注册函数
+- 当指定的事情完成时，Event Table会将这个函数移入Event Queue
+- 主线程内的任务执行完毕为空，会去Event Queue读取对应的函数，进入主线程执行
+- 上述过程会不断重复，也就是常说的Event Loop(事件循环)
+
+
+
+参考文章：
+
+https://www.cnblogs.com/yugege/p/9598265.html
+
+https://juejin.cn/post/6844903512845860872
